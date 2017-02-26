@@ -9,12 +9,20 @@
 function getDate() {
   return new Date()
 }
+
+function padZero(number) {
+  if(number < 10) {
+    return `0${number}`;
+  }
+  return number;
+}
+
 const clock = {
   name: 'clock',
   data() {
     return {
-      minutes: getDate().getMinutes(),
-      hours: getDate().getHours(),
+      minutes: padZero(getDate().getMinutes()),
+      hours: padZero(getDate().getHours()),
     };
   },
 };
@@ -23,7 +31,7 @@ export default clock;
 
 setInterval(() => {
   const date = new Date();
-  clock.hours = date.getHours();
-  clock.minutes = date.getMinutes();
+  clock.hours = padZero(date.getHours());
+  clock.minutes = padZero(date.getMinutes());
 }, 1000);
 </script>
