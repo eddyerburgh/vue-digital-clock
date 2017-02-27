@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A Vue digital clock component, for use out the box",
   "author": "Edd Yerburgh <edward.yerburgh@gmail.com>",
+  "main": "./Clock.vue",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
