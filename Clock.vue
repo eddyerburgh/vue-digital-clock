@@ -7,11 +7,11 @@
 
 <script>
 function getDate() {
-  return new Date()
+  return new Date();
 }
 
 function padZero(number) {
-  if(number < 10) {
+  if (number < 10) {
     return `0${number}`;
   }
   return number;

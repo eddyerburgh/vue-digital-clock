@@ -9,7 +9,7 @@
     "build": "node build/build.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
-    "lint:fix": "eslint --ext .js,.vue src test/unit/specs --fix"
+    "lint:fix": "eslint --ext .js,.vue Clock.vue test/unit/specs --fix"
   },
   "dependencies": {
     "vue": "^2.1.0"
