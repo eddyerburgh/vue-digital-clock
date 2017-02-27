@@ -1,7 +1,6 @@
 <template>
-  <time>
-    <span class="hour">{{ hours }}</span>:
-    <span class="minutes">{{ minutes }}</span>
+  <time class="clock">
+    <span class="clock__hour">{{ hours }}</span>:<span class="clock__minutes">{{ minutes }}</span>
   </time>
 </template>
 
