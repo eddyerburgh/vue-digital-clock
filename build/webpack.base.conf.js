@@ -5,7 +5,7 @@ var projectRoot = path.resolve(__dirname, '../');
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: './example/main.js'
   },
   output: {
     path: config.build.assetsRoot,
@@ -17,8 +17,8 @@ module.exports = {
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
       'vue$': 'vue/dist/vue.common.js',
-      'src': path.resolve(__dirname, '../src'),
-      'components': path.resolve(__dirname, '../src/components')
+      'src': path.resolve(__dirname, '../example'),
+      'components': path.resolve(__dirname, '../example/components')
     }
   },
   resolveLoader: {
@@ -34,7 +34,7 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel',
         include: [
-          path.join(projectRoot, 'src')
+          path.join(projectRoot, 'example')
         ],
         exclude: /node_modules/
       },
