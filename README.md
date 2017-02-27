@@ -1,24 +1,25 @@
-# avoriaz-karma-mocha-example
+# vue-digital-clock
 
-> An example project using avoriaz, karma and mocha to run tests
+> A digital clock component build with Vue.js
 
-## Build Setup
+## Example
 
-``` bash
-# install dependencies
-npm install
+```vue
+<template>
+  <Clock />
+</template>
 
-# serve with hot reload at localhost:8080
-npm run dev
+<script>
+import Clock from 'vue-digital-clock'
 
-# build for production with minification
-npm run build
-
-# run unit tests
-npm run unit
-
-# run all tests
-npm test
+export default {
+  name: 'app',
+  components: {
+    Clock,
+  },
+};
+</script>
 ```
+## Screenshot
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+![vue-digital-clock screenshot](/assets/vue-digital-clock.png)
