@@ -1,21 +1,14 @@
 <template>
-  <div id="app">
-    <foo :msg2="msg2" />
-  </div>
+  <Clock />
 </template>
 
 <script>
-import Foo from './components/Foo';
+import Clock from '../Clock';
 
 export default {
   name: 'app',
-  data() {
-    return {
-      msg2: 'message passed by props',
-    };
-  },
   components: {
-    Foo,
+    Clock,
   },
 };
 </script>
