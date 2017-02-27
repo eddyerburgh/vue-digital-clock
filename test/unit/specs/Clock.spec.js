@@ -48,6 +48,6 @@ describe('Clock.vue', () => {
     const wrapper = mount(Clock);
     expect(wrapper.find('.minutes')[0].text()).to.equal('03');
     clock.tick(4 * minutes);
-    setTimeout(() => expect(wrapper.find('.minutes')[0].text()).to.equal('04'), 1000)
+    setTimeout(() => expect(wrapper.find('.minutes')[0].text()).to.equal('04'), 1000);
   });
 });

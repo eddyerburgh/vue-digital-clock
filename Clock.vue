@@ -25,13 +25,13 @@ const clock = {
       hours: padZero(getDate().getHours()),
     };
   },
-  created: function() {
-    var self = this
+  created() {
+    const self = this;
     setInterval(() => {
-      self.hours = padZero(getDate().getHours())
-      self.minutes = padZero(getDate().getMinutes())
-      }, 2000)
-    }
+      self.hours = padZero(getDate().getHours());
+      self.minutes = padZero(getDate().getMinutes());
+    }, 2000);
+  },
 };
 
 export default clock;
