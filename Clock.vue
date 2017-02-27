@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <div class="hour">{{ hours }}</div>
-    <div class="minutes">{{ minutes }}</div>
-  </div>
+  <time>
+    <span class="hour">{{ hours }}</span>:
+    <span class="minutes">{{ minutes }}</span>
+  </time>
 </template>
 
 <script>
@@ -25,13 +25,14 @@ const clock = {
       hours: padZero(getDate().getHours()),
     };
   },
+  created: function() {
+    var self = this
+    setInterval(() => {
+      self.hours = padZero(getDate().getHours())
+      self.minutes = padZero(getDate().getMinutes())
+      }, 2000)
+    }
 };
 
 export default clock;
-
-setInterval(() => {
-  const date = new Date();
-  clock.hours = padZero(date.getHours());
-  clock.minutes = padZero(date.getMinutes());
-}, 1000);
 </script>

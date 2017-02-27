@@ -10,8 +10,8 @@ const hours = (60 * minutes);
 describe('Clock.vue', () => {
   let clock;
 
-  it('renders a div', () => {
-    expect(mount(Clock).is('div')).to.equal(true);
+  it('renders a time element', () => {
+    expect(mount(Clock).is('time')).to.equal(true);
   });
 
   it('renders current hour in 24 hour format', () => {
@@ -40,5 +40,14 @@ describe('Clock.vue', () => {
     clock.tick(3 * minutes);
     const wrapper = mount(Clock);
     expect(wrapper.find('.minutes')[0].text()).to.equal('03');
+  });
+
+  it('Updates minutes when changed', () => {
+    clock = sinon.useFakeTimers(new Date(2016, 2, 15).getTime());
+    clock.tick(3 * minutes);
+    const wrapper = mount(Clock);
+    expect(wrapper.find('.minutes')[0].text()).to.equal('03');
+    clock.tick(4 * minutes);
+    setTimeout(() => expect(wrapper.find('.minutes')[0].text()).to.equal('04'), 1000)
   });
 });
