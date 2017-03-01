@@ -1,6 +1,6 @@
 # vue-digital-clock
 
-> A digital clock component build with Vue.js
+> A digital clock component built with Vue.js
 
 ## Example
 
@@ -22,4 +22,4 @@ export default {
 ```
 ## Screenshot
 
-![vue-digital-clock screenshot](/assets/vue-digital-clock.png)
+![vue-digital-clock screenshot](https://github.com/eddyerburgh/vue-digital-clock/assets/vue-digital-clock.png)
