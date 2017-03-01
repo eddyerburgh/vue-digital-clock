@@ -4,7 +4,6 @@
   "description": "A Vue digital clock component, for use out the box",
   "author": "Edd Yerburgh <edward.yerburgh@gmail.com>",
   "main": "./Clock.vue",
-  "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
@@ -77,5 +76,13 @@
   "engines": {
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/eddyerburgh/vue-digital-clock.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eddyerburgh/vue-digital-clock/issues"
+  },
+  "homepage": "https://github.com/eddyerburgh/vue-digital-clock#readme",
 }
