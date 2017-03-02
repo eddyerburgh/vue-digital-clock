@@ -3,15 +3,15 @@
 // we are also using it with karma-webpack
 //   https://github.com/webpack/karma-webpack
 
-var path = require('path');
-var merge = require('webpack-merge');
-var baseConfig = require('../../build/webpack.base.conf');
-var utils = require('../../build/utils');
-var webpack = require('webpack');
-var projectRoot = path.resolve(__dirname, '../../');
-var config = require('../../config');
+const path = require('path');
+const merge = require('webpack-merge');
+const baseConfig = require('../../build/webpack.base.conf');
+const utils = require('../../build/utils');
+const webpack = require('webpack');
+const projectRoot = path.resolve(__dirname, '../../');
+const config = require('../../config');
 
-var webpackConfig = merge(baseConfig, {
+const webpackConfig = merge(baseConfig, {
   devtool: '#inline-source-map',
   vue: {
     loaders: {
