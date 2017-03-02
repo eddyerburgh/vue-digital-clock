@@ -9,6 +9,7 @@ var baseConfig = require('../../build/webpack.base.conf');
 var utils = require('../../build/utils');
 var webpack = require('webpack');
 var projectRoot = path.resolve(__dirname, '../../');
+var config = require('../../config');
 
 var webpackConfig = merge(baseConfig, {
   devtool: '#inline-source-map',
@@ -19,7 +20,7 @@ var webpackConfig = merge(baseConfig, {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': require('../../config/test.env')
+      'process.env': config.test.env
     })
   ]
 });

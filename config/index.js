@@ -10,9 +10,7 @@ module.exports = {
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    productionSourceMap: true,
-    productionGzip: false,
-    productionGzipExtensions: ['js', 'css']
+    productionSourceMap: true
   },
   dev: {
     env:{
@@ -28,5 +26,10 @@ module.exports = {
     // In our experience, they generally work as expected,
     // just be aware of this issue when enabling this option.
     cssSourceMap: false
+  },
+  test: {
+    env: {
+      NODE_ENV: '"testing"'
+    }
   }
 };
