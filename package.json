@@ -11,6 +11,28 @@
     "test": "npm run unit",
     "lint:fix": "eslint --ext .js,.vue Clock.vue test/unit/specs --fix"
   },
+  "keywords": [
+    "vue clock",
+    "vue2 clock",
+    "vuejs clock",
+    "vue.js clock",
+    "vue js clock",
+    "vue clock component",
+    "vue2 clock component",
+    "vuejs clock component",
+    "vue.js clock component",
+    "vue js clock component",
+    "vue digital clock",
+    "vue2 digital clock",
+    "vuejs digital clock",
+    "vue.js digital clock",
+    "vue js digital clock",
+    "vue digital clock component",
+    "vue2 digital clock component",
+    "vuejs digital clock component",
+    "vue.js digital clock component",
+    "vue js digital clock component"
+  ],
   "peerDependencies": {
     "vue": "^2.1.0"
   },
