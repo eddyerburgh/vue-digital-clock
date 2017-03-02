@@ -28,6 +28,15 @@ describe('Clock.vue', () => {
     expect(wrapper.find('.clock__hour')[0].text()).to.equal('03');
   });
 
+  it('Updates hours when changed', () => {
+    clock = sinon.useFakeTimers(new Date(2016, 2, 15).getTime());
+    clock.tick(13 * hours);
+    const wrapper = mount(Clock);
+    expect(wrapper.find('.clock__hour')[0].text()).to.equal('13');
+    clock.tick(14 * hours);
+    setTimeout(() => expect(wrapper.find('.clock__hour')[0].text()).to.equal('14'), 1000);
+  });
+
   it('renders current minutes', () => {
     clock = sinon.useFakeTimers(new Date(2016, 2, 15).getTime());
     clock.tick(30 * minutes);
