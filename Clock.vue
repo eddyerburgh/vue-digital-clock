@@ -25,11 +25,10 @@ const clock = {
     };
   },
   created() {
-    const self = this;
     setInterval(() => {
-      self.hours = padZero(getDate().getHours());
-      self.minutes = padZero(getDate().getMinutes());
-    }, 2000);
+      this.hours = padZero(getDate().getHours());
+      this.minutes = padZero(getDate().getMinutes());
+    }, 1000);
   },
 };
 
