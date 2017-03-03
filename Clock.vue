@@ -5,10 +5,6 @@
 </template>
 
 <script>
-function getDate() {
-  return new Date();
-}
-
 function padZero(number) {
   if (number < 10) {
     return `0${number}`;
@@ -16,18 +12,30 @@ function padZero(number) {
   return number;
 }
 
+function getDate() {
+  return new Date();
+}
+
+function getMinutes() {
+  return padZero(getDate().getMinutes());
+}
+
+function getHour() {
+  return padZero(getDate().getHours());
+}
+
 const clock = {
   name: 'clock',
   data() {
     return {
-      minutes: padZero(getDate().getMinutes()),
-      hours: padZero(getDate().getHours()),
+      minutes: getMinutes(),
+      hours: getHour(),
     };
   },
   created() {
     setInterval(() => {
-      this.hours = padZero(getDate().getHours());
-      this.minutes = padZero(getDate().getMinutes());
+      this.minutes = getMinutes();
+      this.hours = getHour();
     }, 1000);
   },
 };
