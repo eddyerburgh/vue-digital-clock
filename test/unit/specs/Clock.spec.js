@@ -59,4 +59,12 @@ describe('Clock.vue', () => {
     clock.tick(4 * minutes);
     setTimeout(() => expect(wrapper.find('.clock__minutes')[0].text()).to.equal('04'), 1000);
   });
+  it('Calls clear input with vm.ticker when component is destroyed', () => {
+    const stub = sinon.stub();
+    window.clearInterval = stub;
+    const wrapper = mount(Clock);
+    const ticker = wrapper.vm.ticker;
+    wrapper.destroy();
+    expect(stub.args[0][0]).to.equal(ticker);
+  });
 });

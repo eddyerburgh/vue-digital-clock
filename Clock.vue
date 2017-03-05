@@ -24,21 +24,26 @@ function getHour() {
   return padZero(getDate().getHours());
 }
 
-const clock = {
+export default{
   name: 'clock',
+
   data() {
     return {
+      ticker: null,
       minutes: getMinutes(),
       hours: getHour(),
     };
   },
+
   created() {
-    setInterval(() => {
+    this.ticker = setInterval(() => {
       this.minutes = getMinutes();
       this.hours = getHour();
     }, 1000);
   },
-};
 
-export default clock;
+  destroyed() {
+    clearInterval(this.ticker);
+  },
+};
 </script>
