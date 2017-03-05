@@ -4,6 +4,9 @@ module.exports = {
   parserOptions: {
     sourceType: 'module'
   },
+  env: {
+    browser: true
+  },
   extends: 'airbnb-base',
   // required to lint *.vue files
   plugins: [
