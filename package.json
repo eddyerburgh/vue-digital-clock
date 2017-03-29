@@ -1,6 +1,6 @@
 {
   "name": "vue-digital-clock",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A Vue digital clock component, for use out the box",
   "author": "Edd Yerburgh <edward.yerburgh@gmail.com>",
   "main": "./Clock.vue",
