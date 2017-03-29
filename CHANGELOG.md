@@ -4,7 +4,7 @@
 
 1.1.0 / 03-05-2017
 =================
-  * Add destryed() method to clear interval when component is destroyed
+  * Add destroyed() method to clear interval when component is destroyed
 
 1.0.2 / 03-02-2017
 =================
