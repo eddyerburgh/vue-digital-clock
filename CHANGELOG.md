@@ -1,3 +1,7 @@
+1.3.0 / 03-29-2017
+=================
+  * Remove ES6 from Clock.vue
+
 1.2.0 / 03-29-2017
 =================
   * Remove babel-runtime plugin
