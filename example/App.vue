@@ -3,9 +3,9 @@
 </template>
 
 <script>
-import Clock from '../Clock';
+const Clock = require('../Clock');
 
-export default {
+module.exports = {
   name: 'app',
   components: {
     Clock,

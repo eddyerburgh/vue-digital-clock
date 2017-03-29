@@ -1,7 +1,8 @@
-import { mount } from 'avoriaz';
-import { expect } from 'chai';
-import sinon from 'sinon';
-import Clock from '../../../Clock';
+const mount = require('avoriaz').mount;
+const expect = require('chai').expect;
+const sinon = require('sinon');
+const Clock = require('../../../Clock');
+
 
 const seconds = (1000);
 const minutes = (60 * seconds);

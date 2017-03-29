@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
-    "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
+    "unit": "karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "lint:fix": "eslint --ext .js,.vue Clock.vue test/unit/specs --fix"
   },
@@ -38,16 +38,9 @@
   },
   "devDependencies": {
     "avoriaz": "^1.8.2",
-    "babel-core": "^6.0.0",
-    "babel-eslint": "^7.0.0",
-    "babel-loader": "^6.0.0",
-    "babel-plugin-istanbul": "^3.0.0",
-    "babel-preset-es2015": "^6.0.0",
-    "babel-preset-stage-2": "^6.0.0",
-    "babel-register": "^6.0.0",
     "chai": "^3.5.0",
     "chalk": "^1.1.3",
-    "connect-history-api-fallback": "^1.1.0",
+    "connect-history-api-fallba§ck": "^1.1.0",
     "cross-env": "^3.1.4",
     "css-loader": "^0.25.0",
     "eslint": "^3.7.1",
