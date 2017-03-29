@@ -1,3 +1,7 @@
+1.3.1 / 03-29-2017
+=================
+  * Remove babel from project
+
 1.3.0 / 03-29-2017
 =================
   * Remove ES6 from Clock.vue
