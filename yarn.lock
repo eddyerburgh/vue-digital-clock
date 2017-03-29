@@ -681,12 +681,6 @@ babel-plugin-transform-regenerator@^6.22.0:
   dependencies:
     regenerator-transform "0.9.8"
 
-babel-plugin-transform-runtime@^6.0.0:
-  version "6.23.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-transform-runtime/-/babel-plugin-transform-runtime-6.23.0.tgz#88490d446502ea9b8e7efb0fe09ec4d99479b1ee"
-  dependencies:
-    babel-runtime "^6.22.0"
-
 babel-plugin-transform-strict-mode@^6.22.0:
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-strict-mode/-/babel-plugin-transform-strict-mode-6.22.0.tgz#e008df01340fdc87e959da65991b7e05970c8c7c"
@@ -4848,9 +4842,13 @@ signal-exit@^3.0.0:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
-sinon@2.0.0-pre.6:
-  version "2.0.0-pre.6"
-  resolved "https://registry.yarnpkg.com/sinon/-/sinon-2.0.0-pre.6.tgz#77f81af452b9fa1ddb296aa799c98bb11852e2db"
+sinon-chai@^2.9.0:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/sinon-chai/-/sinon-chai-2.9.0.tgz#34d820042bc9661a14527130d401eb462c49bb84"
+
+sinon@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/sinon/-/sinon-2.1.0.tgz#e057a9d2bf1b32f5d6dd62628ca9ee3961b0cafb"
   dependencies:
     diff "^3.1.0"
     formatio "1.2.0"
