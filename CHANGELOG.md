@@ -1,3 +1,7 @@
+1.1.0 / 03-29-2017
+=================
+  * Remove babel-runtime plugin
+
 1.1.0 / 03-05-2017
 =================
   * Add destryed() method to clear interval when component is destroyed
