@@ -7,7 +7,7 @@
 <script>
 function padZero(number) {
   if (number < 10) {
-    return `0${number}`;
+    return '0' + number;
   }
   return number;
 }
@@ -24,10 +24,10 @@ function getHour() {
   return padZero(getDate().getHours());
 }
 
-export default{
+module.exports = {
   name: 'clock',
 
-  data() {
+  data: function data() {
     return {
       ticker: null,
       minutes: getMinutes(),
@@ -35,14 +35,16 @@ export default{
     };
   },
 
-  created() {
-    this.ticker = setInterval(() => {
-      this.minutes = getMinutes();
-      this.hours = getHour();
+  created: function created() {
+    var _this = this;
+
+    this.ticker = setInterval(function ticker() {
+      _this.minutes = getMinutes();
+      _this.hours = getHour();
     }, 1000);
   },
 
-  destroyed() {
+  destroyed: function destroyed() {
     clearInterval(this.ticker);
   },
 };
