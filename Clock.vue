@@ -3,7 +3,10 @@
     <span class="clock__hour">{{ hours }}</span><!--
     --><span v-if="!blink || seconds % 2 === 0">:</span><!--
     --><span v-else>&nbsp;</span><!--
-    --><span class="clock__minutes">{{ minutes }}</span>
+    --><span class="clock__minutes">{{ minutes }}</span><!--
+        --><span v-if="!blink || (seconds % 2 === 0 && displaySeconds)">:</span><!--
+    --><span v-else-if="displaySeconds">&nbsp;</span><!--
+    --><span v-if="displaySeconds" class="clock__seconds">{{ seconds }}</span>
   </time>
 </template>
 
@@ -20,7 +23,7 @@ function getDate() {
 }
 
 function getSeconds() {
-  return getDate().getSeconds();
+  return padZero(getDate().getSeconds());
 }
 
 function getMinutes() {
@@ -34,7 +37,7 @@ function getHour() {
 module.exports = {
   name: 'clock',
 
-  props: ['blink'],
+  props: ['blink', 'displaySeconds'],
 
   data: function data() {
     return {

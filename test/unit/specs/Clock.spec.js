@@ -52,13 +52,36 @@ describe('Clock.vue', () => {
     expect(wrapper.find('.clock__minutes')[0].text()).to.contain('03');
   });
 
-  it('Updates minutes when changed', () => {
+  it('updates minutes when changed', () => {
     clock = sinon.useFakeTimers(new Date(2016, 2, 15).getTime());
     clock.tick(3 * minutes);
     const wrapper = mount(Clock);
     expect(wrapper.find('.clock__minutes')[0].text()).to.contain('03');
     clock.tick(4 * minutes);
     setTimeout(() => expect(wrapper.find('.clock__minutes')[0].text()).to.contain('04'), 1000);
+  });
+
+  it('renders current seconds with padded 0 if props displaySeconds is true', () => {
+    clock = sinon.useFakeTimers(new Date(2016, 2, 15).getTime());
+    clock.tick(5 * seconds);
+    const wrapper = mount(Clock, { propsData: { displaySeconds: true } });
+    expect(wrapper.find('.clock__seconds')[0].text()).to.contain('05');
+  });
+
+  it('updates seconds when changed if props displaySeconds is true', () => {
+    clock = sinon.useFakeTimers(new Date(2016, 2, 15).getTime());
+    clock.tick(3 * seconds);
+    const wrapper = mount(Clock, { propsData: { displaySeconds: true } });
+    expect(wrapper.find('.clock__seconds')[0].text()).to.contain('03');
+    clock.tick(4 * seconds);
+    setTimeout(() => expect(wrapper.find('.clock__seconds')[0].text()).to.contain('04'), 1000);
+  });
+
+  it('does not render seconds with if props displaySeconds is undefined', () => {
+    clock = sinon.useFakeTimers(new Date(2016, 2, 15).getTime());
+    clock.tick(5 * seconds);
+    const wrapper = mount(Clock);
+    expect(wrapper.find('.clock__seconds').length).to.equal(0);
   });
 
   it('displays colon when not passed blink prop and seconds are even', () => {
@@ -70,7 +93,7 @@ describe('Clock.vue', () => {
 
   it('displays colon when not passed blink prop and seconds are odd', () => {
     clock = sinon.useFakeTimers(new Date(2016, 2, 15).getTime());
-    clock.tick(seconds);
+    clock.tick(seconds * 3);
     const wrapper = mount(Clock);
     expect(wrapper.text()).to.contain(':');
   });
@@ -82,13 +105,33 @@ describe('Clock.vue', () => {
     expect(wrapper.text()).to.contain(':');
   });
 
-  it('does not display colon when passed blink prop and seconds are odd', () => {
+  it('does not display colon when passed blink prop and seconds are even', () => {
     clock = sinon.useFakeTimers(new Date(2016, 2, 15).getTime());
-    clock.tick(seconds);
+    clock.tick(seconds * 3);
     const wrapper = mount(Clock, { propsData: { blink: true } });
     expect(wrapper.text()).to.not.contain(':');
   });
 
+  it('displays second colon when passed blink and displaySeconds props and seconds are even', () => {
+    clock = sinon.useFakeTimers(new Date(2016, 2, 15).getTime());
+    clock.tick(seconds * 2);
+    const wrapper = mount(Clock, { propsData: { blink: true, displaySeconds: true } });
+    expect(wrapper.find('span')[3].text()).to.contain(':');
+  });
+
+  it('does not display second colon when passed blink and displaySeconds props and seconds are odd', () => {
+    clock = sinon.useFakeTimers(new Date(2016, 2, 15).getTime());
+    clock.tick(seconds * 3);
+    const wrapper = mount(Clock, { propsData: { blink: true, displaySeconds: true } });
+    expect(wrapper.find('span')[3].text()).to.not.contain(':');
+  });
+
+  it('does not display colon when passed blink prop and seconds are even', () => {
+    clock = sinon.useFakeTimers(new Date(2016, 2, 15).getTime());
+    clock.tick(seconds * 3);
+    const wrapper = mount(Clock, { propsData: { blink: true } });
+    expect(wrapper.text()).to.not.contain(':');
+  });
   it('Calls clear input with vm.ticker when component is destroyed', () => {
     const stub = sinon.stub();
     window.clearInterval = stub;

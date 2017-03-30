@@ -1,5 +1,5 @@
 <template>
-  <Clock :blink="true"/>
+  <Clock :blink="true" :displaySeconds="true" />
 </template>
 
 <script>
