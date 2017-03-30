@@ -39,4 +39,4 @@ export default {
 ```
 ## Screenshot
 
-![vue-digital-clock screenshot](https://raw.githubusercontent.com/eddyerburgh/vue-digital-clock/master/assets/vue-digital-clock.png)
+![vue-digital-clock screenshot](https://raw.githubusercontent.com/eddyerburgh/vue-digital-clock/master/assets/vue-digital-clock.gif)
