@@ -19,6 +19,14 @@ And import it into your project
 import Clock from 'vue-digital-clock'
 ```
 
+## Props
+
+| Prop    | Type | Usage  |
+| ------  | ---- | ------ |
+| blink   | Boolean | Set as true to have the semi colon blink with the seconds|
+
+
+
 ## Example
 
 ```vue
