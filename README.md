@@ -24,7 +24,7 @@ import Clock from 'vue-digital-clock'
 | Prop    | Type | Usage  |
 | ------  | ---- | ------ |
 | blink   | Boolean | Set as true to have the semi colon blink with the seconds|
-
+| displaySeconds   | Boolean | Set as true to display seconds|
 
 
 ## Example
