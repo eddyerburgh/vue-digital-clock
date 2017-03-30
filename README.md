@@ -31,7 +31,7 @@ import Clock from 'vue-digital-clock'
 
 ```vue
 <template>
-  <Clock />
+  <Clock :blink="true" />
 </template>
 
 <script>
