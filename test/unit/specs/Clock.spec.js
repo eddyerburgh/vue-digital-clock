@@ -34,8 +34,9 @@ describe('Clock.vue', () => {
     clock.tick(13 * hours);
     const wrapper = mount(Clock);
     expect(wrapper.find('.clock__hour')[0].text()).to.contain('13');
-    clock.tick(14 * hours);
-    setTimeout(() => expect(wrapper.find('.clock__hour')[0].text()).to.contain('14'), 1000);
+    clock.tick(3 * hours);
+    wrapper.update();
+    expect(wrapper.find('.clock__hour')[0].text()).to.contain('16');
   });
 
   it('renders current minutes', () => {
@@ -57,8 +58,9 @@ describe('Clock.vue', () => {
     clock.tick(3 * minutes);
     const wrapper = mount(Clock);
     expect(wrapper.find('.clock__minutes')[0].text()).to.contain('03');
-    clock.tick(4 * minutes);
-    setTimeout(() => expect(wrapper.find('.clock__minutes')[0].text()).to.contain('04'), 1000);
+    clock.tick(3 * minutes);
+    wrapper.update();
+    expect(wrapper.find('.clock__minutes')[0].text()).to.contain('06');
   });
 
   it('renders current seconds with padded 0 if props displaySeconds is true', () => {
@@ -73,8 +75,9 @@ describe('Clock.vue', () => {
     clock.tick(3 * seconds);
     const wrapper = mount(Clock, { propsData: { displaySeconds: true } });
     expect(wrapper.find('.clock__seconds')[0].text()).to.contain('03');
-    clock.tick(4 * seconds);
-    setTimeout(() => expect(wrapper.find('.clock__seconds')[0].text()).to.contain('04'), 1000);
+    clock.tick(2 * seconds);
+    wrapper.update();
+    expect(wrapper.find('.clock__seconds')[0].text()).to.contain('05');
   });
 
   it('does not render seconds with if props displaySeconds is undefined', () => {
