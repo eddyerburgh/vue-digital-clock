@@ -3,7 +3,6 @@ const expect = require('chai').expect;
 const sinon = require('sinon');
 const Clock = require('../../../Clock');
 
-
 const seconds = (1000);
 const minutes = (60 * seconds);
 const hours = (60 * minutes);
