@@ -134,6 +134,7 @@ describe('Clock.vue', () => {
     const wrapper = mount(Clock, { propsData: { blink: true } });
     expect(wrapper.text()).to.not.contain(':');
   });
+  
   it('Calls clear input with vm.ticker when component is destroyed', () => {
     const stub = sinon.stub();
     window.clearInterval = stub;
