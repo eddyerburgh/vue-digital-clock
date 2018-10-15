@@ -134,7 +134,7 @@ describe('Clock.vue', () => {
     const wrapper = mount(Clock, { propsData: { blink: true } });
     expect(wrapper.text()).to.not.contain(':');
   });
-  
+
   it('Calls clear input with vm.ticker when component is destroyed', () => {
     const stub = sinon.stub();
     window.clearInterval = stub;
@@ -142,5 +142,10 @@ describe('Clock.vue', () => {
     const ticker = wrapper.vm.ticker;
     wrapper.destroy();
     expect(stub.args[0][0]).to.equal(ticker);
+  });
+
+  it('should not display second colon by default', () => {
+    const wrapper = mount(Clock);
+    expect((wrapper.text().match(/:/g) || []).length).to.equal(1);
   });
 });

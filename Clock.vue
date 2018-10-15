@@ -4,7 +4,7 @@
     --><span v-if="!blink || seconds % 2 === 0">:</span><!--
     --><span v-else>&nbsp;</span><!--
     --><span class="clock__minutes">{{ minutes }}</span><!--
-        --><span v-if="!blink || (seconds % 2 === 0 && displaySeconds)">:</span><!--
+    --><span v-if="displaySeconds && (!blink || seconds % 2 === 0)">:</span><!--
     --><span v-else-if="displaySeconds">&nbsp;</span><!--
     --><span v-if="displaySeconds" class="clock__seconds">{{ seconds }}</span>
   </time>
