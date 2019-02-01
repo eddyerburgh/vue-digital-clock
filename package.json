@@ -8,9 +8,9 @@
   "scripts": {
     "dev": "parcel example/index.html",
     "build": "rollup -c",
-    "unit": "karma start test/unit/karma.conf.js --single-run",
+    "test:unit": "jest",
     "release": "semantic-release",
-    "test": "npm run unit",
+    "test": "npm run test:unit",
     "lint:fix": "eslint --ext .js,.vue Clock.vue test/unit/specs --fix"
   },
   "keywords": [
@@ -39,8 +39,10 @@
     "vue": "^2.x"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
     "avoriaz": "^1.8.2",
-    "chai": "^3.5.0",
+    "babel-jest": "^24.0.0",
     "eslint": "^3.7.1",
     "jest": "^24.0.0",
     "lolex": "^1.4.0",
@@ -51,9 +53,10 @@
     "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-vue": "^4.6.2",
     "semantic-release": "^15.9.17",
-    "sinon": "^2.1.0",
+    "sinon": "^7.2.3",
+    "typescript": "^3.3.1",
     "vue": "^2.5.22",
-    "vue-jest": "^3.0.2",
+    "vue-jest": "^4.0.0-beta.1",
     "vue-template-compiler": "^2.5.22"
   },
   "engines": {
@@ -67,5 +70,11 @@
   "bugs": {
     "url": "https://github.com/eddyerburgh/vue-digital-clock/issues"
   },
-  "homepage": "https://github.com/eddyerburgh/vue-digital-clock#readme"
+  "homepage": "https://github.com/eddyerburgh/vue-digital-clock#readme",
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.vue$": "vue-jest"
+    }
+  }
 }
