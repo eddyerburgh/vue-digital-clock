@@ -1,1 +1,1 @@
-export { default } from './Clock.vue';
+export { default } from "./Clock.vue";

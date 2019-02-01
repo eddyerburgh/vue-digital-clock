@@ -1,11 +1,17 @@
 <template>
   <time class="clock">
-    <span class="clock__hour">{{ hours }}</span><!--
-    --><span v-if="!blink || seconds % 2 === 0">:</span><!--
-    --><span v-else>&nbsp;</span><!--
-    --><span class="clock__minutes">{{ minutes }}</span><!--
-    --><span v-if="displaySeconds && (!blink || seconds % 2 === 0)">:</span><!--
-    --><span v-else-if="displaySeconds">&nbsp;</span><!--
+    <span class="clock__hour">{{ hours }}</span
+    ><!--
+    --><span v-if="!blink || seconds % 2 === 0">:</span
+    ><!--
+    --><span v-else>&nbsp;</span
+    ><!--
+    --><span class="clock__minutes">{{ minutes }}</span
+    ><!--
+    --><span v-if="displaySeconds && (!blink || seconds % 2 === 0)">:</span
+    ><!--
+    --><span v-else-if="displaySeconds">&nbsp;</span
+    ><!--
     --><span v-if="displaySeconds" class="clock__seconds">{{ seconds }}</span>
   </time>
 </template>
@@ -13,7 +19,7 @@
 <script>
 function padZero(number) {
   if (number < 10) {
-    return '0' + number;
+    return "0" + number;
   }
   return number;
 }
@@ -35,16 +41,16 @@ function getHour() {
 }
 
 export default {
-  name: 'digital-clock',
+  name: "digital-clock",
 
-  props: ['blink', 'displaySeconds'],
+  props: ["blink", "displaySeconds"],
 
   data: function data() {
     return {
       ticker: null,
       minutes: getMinutes(),
       hours: getHour(),
-      seconds: getSeconds(),
+      seconds: getSeconds()
     };
   },
 
@@ -60,7 +66,6 @@ export default {
 
   destroyed: function destroyed() {
     clearInterval(this.ticker);
-  },
-
+  }
 };
 </script>

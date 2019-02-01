@@ -5,27 +5,29 @@
 ## Installation
 
 With NPM:
+
 ```shell
 npm install --save vue-digital-clock
 ```
 
 With Yarn
+
 ```shell
 yarn add vue-digital-clock
 ```
 
 And import it into your project
+
 ```javascript
-import Clock from 'vue-digital-clock'
+import Clock from "vue-digital-clock";
 ```
 
 ## Props
 
-| Prop    | Type | Usage  |
-| ------  | ---- | ------ |
-| blink   | Boolean | Set as true to have the colon blink with the seconds|
-| displaySeconds   | Boolean | Set as true to display seconds|
-
+| Prop           | Type    | Usage                                                |
+| -------------- | ------- | ---------------------------------------------------- |
+| blink          | Boolean | Set as true to have the colon blink with the seconds |
+| displaySeconds | Boolean | Set as true to display seconds                       |
 
 ## Example
 
@@ -35,16 +37,17 @@ import Clock from 'vue-digital-clock'
 </template>
 
 <script>
-import Clock from 'vue-digital-clock'
+import Clock from "vue-digital-clock";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    Clock,
-  },
-}
+    Clock
+  }
+};
 </script>
 ```
+
 ## Screenshot
 
 ![vue-digital-clock screenshot](https://raw.githubusercontent.com/eddyerburgh/vue-digital-clock/master/assets/vue-digital-clock.gif)
