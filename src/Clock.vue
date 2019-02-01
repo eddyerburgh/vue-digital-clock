@@ -34,7 +34,7 @@ function getHour() {
   return padZero(getDate().getHours());
 }
 
-module.exports = {
+export default {
   name: 'clock',
 
   props: ['blink', 'displaySeconds'],
