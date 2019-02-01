@@ -21,6 +21,22 @@ describe('Clock.vue', () => {
     expect(wrapper.find('.clock__hour')[0].text()).to.contain('21');
   });
 
+  it('renders an ante-meridiem time with "am" when in twelveHour mode', () => {
+    clock = sinon.useFakeTimers(new Date(2016, 2, 15).getTime());
+    clock.tick(7 * hours);
+    const wrapper = mount(Clock, { propsData: { twelveHour: true } });
+    expect(wrapper.find('.clock__hour')[0].text()).to.contain('07');
+    expect(wrapper.find('.clock__ampm')[0].text()).to.contain('am');
+  });
+
+  it('renders a post-meridiem time with "pm" when in twelveHour mode', () => {
+    clock = sinon.useFakeTimers(new Date(2016, 2, 15).getTime());
+    clock.tick(21 * hours);
+    const wrapper = mount(Clock, { propsData: { twelveHour: true } });
+    expect(wrapper.find('.clock__hour')[0].text()).to.contain('09');
+    expect(wrapper.find('.clock__ampm')[0].text()).to.contain('pm');
+  });
+
   it('renders current hour with padded 0', () => {
     clock = sinon.useFakeTimers(new Date(2016, 2, 15).getTime());
     clock.tick(3 * hours);
@@ -90,49 +106,49 @@ describe('Clock.vue', () => {
     clock = sinon.useFakeTimers(new Date(2016, 2, 15).getTime());
     clock.tick(seconds * 2);
     const wrapper = mount(Clock);
-    expect(wrapper.text()).to.contain(':');
+    expect(wrapper.find('.clock__colon')[0].html()).to.contain('<span class="clock__colon" style="visibility: visible;">:</span>');
   });
 
   it('displays colon when not passed blink prop and seconds are odd', () => {
     clock = sinon.useFakeTimers(new Date(2016, 2, 15).getTime());
     clock.tick(seconds * 3);
     const wrapper = mount(Clock);
-    expect(wrapper.text()).to.contain(':');
+    expect(wrapper.find('.clock__colon')[0].html()).to.contain('<span class="clock__colon" style="visibility: visible;">:</span>');
   });
 
   it('displays colon when passed blink prop and seconds are even', () => {
     clock = sinon.useFakeTimers(new Date(2016, 2, 15).getTime());
     clock.tick(seconds * 2);
     const wrapper = mount(Clock, { propsData: { blink: true } });
-    expect(wrapper.text()).to.contain(':');
+    expect(wrapper.find('.clock__colon')[0].html()).to.contain('<span class="clock__colon" style="visibility: visible;">:</span>');
   });
 
   it('does not display colon when passed blink prop and seconds are even', () => {
     clock = sinon.useFakeTimers(new Date(2016, 2, 15).getTime());
     clock.tick(seconds * 3);
     const wrapper = mount(Clock, { propsData: { blink: true } });
-    expect(wrapper.text()).to.not.contain(':');
+      expect(wrapper.find('.clock__colon')[0].html()).to.contain('<span class="clock__colon" style="visibility: hidden;">:</span>');
   });
 
   it('displays second colon when passed blink and displaySeconds props and seconds are even', () => {
     clock = sinon.useFakeTimers(new Date(2016, 2, 15).getTime());
     clock.tick(seconds * 2);
     const wrapper = mount(Clock, { propsData: { blink: true, displaySeconds: true } });
-    expect(wrapper.find('span')[3].text()).to.contain(':');
+    expect(wrapper.find('.clock__colon')[1].html()).to.contain('<span class="clock__colon" style="visibility: visible;">:</span>');
   });
 
   it('does not display second colon when passed blink and displaySeconds props and seconds are odd', () => {
     clock = sinon.useFakeTimers(new Date(2016, 2, 15).getTime());
     clock.tick(seconds * 3);
     const wrapper = mount(Clock, { propsData: { blink: true, displaySeconds: true } });
-    expect(wrapper.find('span')[3].text()).to.not.contain(':');
+    expect(wrapper.find('.clock__colon')[1].html()).to.contain('<span class="clock__colon" style="visibility: hidden;">:</span>');
   });
 
   it('does not display colon when passed blink prop and seconds are even', () => {
     clock = sinon.useFakeTimers(new Date(2016, 2, 15).getTime());
     clock.tick(seconds * 3);
     const wrapper = mount(Clock, { propsData: { blink: true } });
-    expect(wrapper.text()).to.not.contain(':');
+    expect(wrapper.find('.clock__colon')[0].html()).to.contain('<span class="clock__colon" style="visibility: hidden;">:</span>');
   });
 
   it('Calls clear input with vm.ticker when component is destroyed', () => {
