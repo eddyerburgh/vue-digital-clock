@@ -1,3 +1,8 @@
+# 2.0.0 / 02-01-2019
+
+- Add twelveHour prop
+- Distribute JS files, rather than a Vue SFC
+
 # 1.5.0 / 03-30-2017
 
 - Add displaySeconds prop
