@@ -24,10 +24,12 @@ import DigitalClock from "vue-digital-clock";
 
 ## Props
 
-| Prop           | Type    | Usage                                                |
-| -------------- | ------- | ---------------------------------------------------- |
-| blink          | Boolean | Set as true to have the colon blink with the seconds |
-| displaySeconds | Boolean | Set as true to display seconds                       |
+| Prop    | Type | Usage  |
+| ------  | ---- | ------ |
+| blink   | Boolean | Set as true to have the colon blink with the seconds|
+| displaySeconds   | Boolean | Set as true to display seconds|
+| twelveHour   | Boolean | Set as true to display times with AM/PM|
+
 
 ## Example
 

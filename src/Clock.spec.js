@@ -101,7 +101,9 @@ describe("Clock.vue", () => {
   it("does not display colon when passed blink prop and seconds are even", () => {
     clock.tick(seconds * 3);
     const wrapper = mount(Clock, { propsData: { blink: true } });
-    expect(wrapper.text()).not.toContain(":");
+    expect(wrapper.find(".clock__colon")[0].html()).toContain(
+      '<span class="clock__colon" style="visibility: hidden;">:</span>'
+    );
   });
 
   it("displays second colon when passed blink and displaySeconds props and seconds are even", () => {
@@ -117,13 +119,17 @@ describe("Clock.vue", () => {
     const wrapper = mount(Clock, {
       propsData: { blink: true, displaySeconds: true }
     });
-    expect(wrapper.find("span")[3].text()).not.toContain(":");
+    expect(wrapper.find(".clock__colon")[1].html()).toContain(
+      '<span class="clock__colon" style="visibility: hidden;">:</span>'
+    );
   });
 
   it("does not display colon when passed blink prop and seconds are even", () => {
     clock.tick(seconds * 3);
     const wrapper = mount(Clock, { propsData: { blink: true } });
-    expect(wrapper.text()).not.toContain(":");
+    expect(wrapper.find(".clock__colon")[0].html()).toContain(
+      '<span class="clock__colon" style="visibility: hidden;">:</span>'
+    );
   });
 
   it("Calls clear input with vm.ticker when component is destroyed", () => {
@@ -138,5 +144,19 @@ describe("Clock.vue", () => {
   it("should not display second colon by default", () => {
     const wrapper = mount(Clock);
     expect((wrapper.text().match(/:/g) || []).length).toBe(1);
+  });
+
+  it('renders an ante-meridiem time with "am" when in twelveHour mode', () => {
+    clock.tick(7 * hours);
+    const wrapper = mount(Clock, { propsData: { twelveHour: true } });
+    expect(wrapper.find(".clock__hour")[0].text()).toContain("07");
+    expect(wrapper.find(".clock__ampm")[0].text()).toContain("am");
+  });
+
+  it('renders a post-meridiem time with "pm" when in twelveHour mode', () => {
+    clock.tick(21 * hours);
+    const wrapper = mount(Clock, { propsData: { twelveHour: true } });
+    expect(wrapper.find(".clock__hour")[0].text()).toContain("09");
+    expect(wrapper.find(".clock__ampm")[0].text()).toContain("pm");
   });
 });

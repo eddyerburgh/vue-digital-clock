@@ -2,20 +2,28 @@
   <time class="clock">
     <span class="clock__hour">{{ hours }}</span
     ><!--
-    --><span v-if="!blink || seconds % 2 === 0">:</span
-    ><!--
-    --><span v-else>&nbsp;</span
+    --><span
+      class="clock__colon"
+      :style="{
+        visibility: !blink || seconds % 2 === 0 ? 'visible' : 'hidden'
+      }"
+      >:</span
     ><!--
     --><span class="clock__minutes">{{ minutes }}</span
     ><!--
-    --><span v-if="displaySeconds && (!blink || seconds % 2 === 0)">:</span
+    --><span
+      class="clock__colon"
+      v-if="displaySeconds"
+      :style="{
+        visibility: !blink || seconds % 2 === 0 ? 'visible' : 'hidden'
+      }"
+      >:</span
     ><!--
-    --><span v-else-if="displaySeconds">&nbsp;</span
+    --><span v-if="displaySeconds" class="clock__seconds">{{ seconds }}</span
     ><!--
-    --><span v-if="displaySeconds" class="clock__seconds">{{ seconds }}</span>
+    --><span v-if="twelveHour" class="clock__ampm">{{ amPm }}</span>
   </time>
 </template>
-
 <script>
 function padZero(number) {
   if (number < 10) {
@@ -30,26 +38,35 @@ const getSeconds = () => padZero(getDate().getSeconds());
 
 const getMinutes = () => padZero(getDate().getMinutes());
 
-const getHour = () => padZero(getDate().getHours());
+const getHour = twelveHour => {
+  let hours = getDate().getHours();
+  if (twelveHour && hours > 12) {
+    hours = hours - 12;
+  }
+  return padZero(hours);
+};
+
+const getAmPm = () => (getDate().getHours() > 12 ? "pm" : "am");
 
 export default {
   name: "vue-digital-clock",
 
-  props: ["blink", "displaySeconds"],
+  props: ["blink", "displaySeconds", "twelveHour"],
 
   data() {
     return {
       ticker: null,
       minutes: getMinutes(),
-      hours: getHour(),
-      seconds: getSeconds()
+      hours: getHour(this.twelveHour),
+      seconds: getSeconds(),
+      amPm: getAmPm()
     };
   },
 
   created() {
     this.ticker = setInterval(() => {
       this.minutes = getMinutes();
-      this.hours = getHour();
+      this.hours = getHour(this.twelveHour);
       this.seconds = getSeconds();
     }, 1000);
   },
