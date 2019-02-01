@@ -8,13 +8,7 @@ export default {
   plugins: [
     commonjs(),
     resolve(),
-    vue({
-      template: {
-        // isProduction,
-        compilerOptions: { preserveWhitespace: false }
-      },
-      css: true
-    }),
+    vue(),
     buble()
   ],
   output: [

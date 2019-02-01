@@ -9,12 +9,12 @@
     "dist/**/*.js"
   ],
   "scripts": {
-    "dev": "parcel example/index.html",
     "build": "rollup -c",
+    "dev": "parcel example/index.html",
     "format": "prettier --write \"{,!(.cache|dist)/**/}/*.{md,vue,js,json}\"",
     "format:check": "prettier --check \"{,!(.cache|dist)/**/}/*.{md,vue,js,json}\"",
+    "prepare": "npm run build",
     "test:unit": "jest",
-    "release": "semantic-release",
     "test": "npm run format:check && npm run test:unit"
   },
   "keywords": [
@@ -56,7 +56,6 @@
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-vue": "^4.6.2",
-    "semantic-release": "^15.9.17",
     "sinon": "^7.2.3",
     "vue": "^2.5.22",
     "vue-hot-reload-api": "^2.3.1",
