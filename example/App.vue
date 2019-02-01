@@ -1,24 +1,23 @@
 <template>
-  <Clock :blink="true" :displaySeconds="true" />
+  <digital-clock :blink="true" :displaySeconds="true" />
 </template>
 
 <script>
-const Clock = require('../Clock');
+import DigitalClock from "../src/Clock.vue";
 
-module.exports = {
-  name: 'app',
+export default {
   components: {
-    Clock,
-  },
+    DigitalClock
+  }
 };
 </script>
 
 <style>
-  .clock {
-    background-color: #263238;
-    color: #eceff1;
-    padding: .3rem .6rem;
-    font-size: 3rem;
-    font-family: 'Menlo', monospace;
-  }
+.clock {
+  background-color: #263238;
+  color: #eceff1;
+  padding: 0.3rem 0.6rem;
+  font-size: 3rem;
+  font-family: "Menlo", monospace;
+}
 </style>
