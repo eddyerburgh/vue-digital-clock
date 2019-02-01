@@ -40,7 +40,6 @@ import DigitalClock from "vue-digital-clock";
 import DigitalClock from "vue-digital-clock";
 
 export default {
-  name: "app",
   components: {
     DigitalClock
   }

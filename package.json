@@ -59,6 +59,7 @@
     "semantic-release": "^15.9.17",
     "sinon": "^7.2.3",
     "vue": "^2.5.22",
+    "vue-hot-reload-api": "^2.3.1",
     "vue-jest": "^3.0.2",
     "vue-template-compiler": "^2.5.22"
   },
@@ -79,8 +80,5 @@
       "^.+\\.js$": "babel-jest",
       "^.+\\.vue$": "vue-jest"
     }
-  },
-  "dependencies": {
-    "vue-hot-reload-api": "^2.3.1"
   }
 }
