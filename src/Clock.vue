@@ -24,28 +24,20 @@ function padZero(number) {
   return number;
 }
 
-function getDate() {
-  return new Date();
-}
+const getDate = () => new Date();
 
-function getSeconds() {
-  return padZero(getDate().getSeconds());
-}
+const getSeconds = () => padZero(getDate().getSeconds());
 
-function getMinutes() {
-  return padZero(getDate().getMinutes());
-}
+const getMinutes = () => padZero(getDate().getMinutes());
 
-function getHour() {
-  return padZero(getDate().getHours());
-}
+const getHour = () => padZero(getDate().getHours());
 
 export default {
-  name: "digital-clock",
+  name: "vue-digital-clock",
 
   props: ["blink", "displaySeconds"],
 
-  data: function data() {
+  data() {
     return {
       ticker: null,
       minutes: getMinutes(),
@@ -54,17 +46,15 @@ export default {
     };
   },
 
-  created: function created() {
-    var _this = this;
-
-    this.ticker = setInterval(function ticker() {
-      _this.minutes = getMinutes();
-      _this.hours = getHour();
-      _this.seconds = getSeconds();
+  created() {
+    this.ticker = setInterval(() => {
+      this.minutes = getMinutes();
+      this.hours = getHour();
+      this.seconds = getSeconds();
     }, 1000);
   },
 
-  destroyed: function destroyed() {
+  destroyed() {
     clearInterval(this.ticker);
   }
 };
