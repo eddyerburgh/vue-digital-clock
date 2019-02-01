@@ -5,6 +5,9 @@
   "author": "Edd Yerburgh <edward.yerburgh@gmail.com>",
   "main": "./dist/cjs/Clock.js",
   "module": "./dist/es/Clock.js",
+  "files": [
+    "dist/**/*.js"
+  ],
   "scripts": {
     "dev": "parcel example/index.html",
     "build": "rollup -c",
@@ -76,5 +79,8 @@
       "^.+\\.js$": "babel-jest",
       "^.+\\.vue$": "vue-jest"
     }
+  },
+  "dependencies": {
+    "vue-hot-reload-api": "^2.3.1"
   }
 }

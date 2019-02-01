@@ -1,13 +1,13 @@
 <template>
-  <ClockComponent :blink="true" :displaySeconds="true" />
+  <digital-clock :blink="true" :displaySeconds="true" />
 </template>
 
 <script>
-import ClockComponent from "../src/Clock.vue";
+import DigitalClock from "../src/Clock.vue";
 
 export default {
   components: {
-    ClockComponent
+    DigitalClock
   }
 };
 </script>
