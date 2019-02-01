@@ -35,7 +35,7 @@ function getHour() {
 }
 
 export default {
-  name: 'clock',
+  name: 'digital-clock',
 
   props: ['blink', 'displaySeconds'],
 

@@ -1,14 +1,13 @@
 <template>
-  <Clock :blink="true" :displaySeconds="true" />
+  <ClockComponent :blink="true" :displaySeconds="true" />
 </template>
 
 <script>
-const Clock = require('../Clock');
+import ClockComponent from '../src/Clock.vue';
 
-module.exports = {
-  name: 'app',
+export default {
   components: {
-    Clock,
+    ClockComponent
   },
 };
 </script>

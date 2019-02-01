@@ -1,10 +1,12 @@
 import vue from 'rollup-plugin-vue'
 import buble from 'rollup-plugin-buble';
 import resolve from 'rollup-plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
 
 export default {
   input: 'src/index.js',
   plugins: [
+    commonjs(),
     resolve(),
     vue({
       template: {
@@ -23,8 +25,7 @@ export default {
     },
     {
       file: 'dist/es/Clock.js',
-      format: 'es',
-      exports: 'default'
+      format: 'es'
     },
   ]
 }
