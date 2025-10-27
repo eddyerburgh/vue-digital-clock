@@ -40,13 +40,13 @@ const getMinutes = () => padZero(getDate().getMinutes());
 
 const getHour = twelveHour => {
   let hours = getDate().getHours();
-  if (twelveHour && hours > 12) {
-    hours = hours - 12;
+  if (twelveHour) {
+    hours = hours % 12 || 12;
   }
   return padZero(hours);
 };
 
-const getAmPm = () => (getDate().getHours() > 12 ? "pm" : "am");
+const getAmPm = () => (getDate().getHours() >= 12 ? "pm" : "am");
 
 export default {
   name: "vue-digital-clock",
