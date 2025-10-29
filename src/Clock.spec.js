@@ -159,4 +159,18 @@ describe("Clock.vue", () => {
     expect(wrapper.find(".clock__hour")[0].text()).toContain("09");
     expect(wrapper.find(".clock__ampm")[0].text()).toContain("pm");
   });
+
+  it("displays 12pm (noon/midday) in twelveHour mode", () => {
+    clock.tick(12 * hours);
+    const wrapper = mount(Clock, { propsData: { twelveHour: true } });
+    expect(wrapper.find(".clock__hour")[0].text()).toContain("12");
+    expect(wrapper.find(".clock__ampm")[0].text()).toContain("pm");
+  });
+
+  it("displays 12am (midnight) in twelveHour mode", () => {
+    clock.tick(0 * hours);
+    const wrapper = mount(Clock, { propsData: { twelveHour: true } });
+    expect(wrapper.find(".clock__hour")[0].text()).toContain("12");
+    expect(wrapper.find(".clock__ampm")[0].text()).toContain("am");
+  });
 });
